@@ -1,0 +1,12 @@
+.container-fluid {
+    height: calc(100vh - 56px);
+}
+  
+.row {
+    height: 100%;
+}
+
+.container-principal{
+      background: url("../assets/img/pexels-ithalu-dominguez-907485.jpg");
+      background-size: cover;
+}
