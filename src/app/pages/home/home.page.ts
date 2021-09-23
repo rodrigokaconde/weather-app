@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { select, Store } from '@ngrx/store';
+
+import * as fromHomeActions from './state/home.actions';
+import * as fromHomeSelectors from './state/home.selectors';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +11,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.css']
 })
 export class HomePage implements OnInit {
+  text: string;
+  searchControl: FormControl;
 
-  constructor() { }
+  constructor( private store: Store) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.searchControl = new FormControl('', Validators.required);
+
   }
 
+  doSeach(){
+    const query = this.searchControl.value;
+    this.store.dispatch(fromHomeActions.loadCurrentWeather({query}));
+  }
 }
