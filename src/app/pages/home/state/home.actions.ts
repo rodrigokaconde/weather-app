@@ -1,4 +1,5 @@
-import { createAction, props } from "@ngrx/store";
+import { createAction, createSelector, props } from "@ngrx/store";
+import { Bookmark } from "src/app/shared/models/bookmark.model";
 
 export const loadCurrentWeather = createAction(
     '[Home] Load Current Weather',
@@ -12,4 +13,13 @@ export const loadCurrentWeatherSuccess = createAction(
 
 export const loadCurrentWeatherFailed = createAction(
     '[Wheather API] Load Current Weather Failed',
+);
+
+export const toogleBookmark = createAction(
+    '[Home] Toggle bBookmar',
+    props<{ entity: Bookmark}>(),
+);
+
+export const clearHomeState = createAction(
+    '[Home] Clear Home State'
 );
