@@ -9,7 +9,7 @@ import { mergeMap, map, catchError, withLatestFrom } from 'rxjs/operators';
 import { WeatherService } from 'src/app/shared/services/weather.service';
 import * as fromDetailsActions from './details.actions';
 import * as fromRouterSelectors from '../../../shared/state/router/router.selectors';
-import { AppState } from 'src/app/shared/app.reducer';
+import { AppState } from 'src/app/shared/state/app.reducer';
 
 @Injectable()
 export class DetailsEffects {

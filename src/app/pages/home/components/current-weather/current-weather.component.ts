@@ -12,7 +12,7 @@ import { CityWeather } from 'src/app/shared/models/weather.model';
 export class CurrentWeatherComponent {
 
   @Input() cityWeather: CityWeather;
-  @Input() isFavorit: boolean;
+  @Input() isFavorite: boolean;
   @Input() unit: Units;
   @Output() toggleBookmark = new EventEmitter();
 
@@ -21,6 +21,5 @@ export class CurrentWeatherComponent {
   }
   onToggleBookmark(){
     this.toggleBookmark.emit();
-    this.cityWeather.city.coord.lon
   }
 }

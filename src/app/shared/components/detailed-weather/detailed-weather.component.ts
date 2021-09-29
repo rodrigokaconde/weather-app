@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Units } from '../../models/units.enum';
 import { Weather } from '../../models/weather.model';
+import { unitToSymbol } from '../../utils/units.utils';
 
 @Component({
   selector: 'app-detailed-weather',
@@ -8,12 +10,16 @@ import { Weather } from '../../models/weather.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetailedWeatherComponent {
-  @Input() weather: Weather;
-
-  get weatherIcon(): string{
-    console.log(this.weather.icon);
-    return `http://openweathermap.org/img/wn/${this.weather.icon}@2x.png`;
-    
-  }
+  
+    @Input() weather: Weather;
+    @Input() unit: Units;
+  
+    get weatherIcon(): string {
+      return `http://openweathermap.org/img/wn/${ this.weather.icon }@2x.png`;
+    }
+  
+    get unitSymbol(): string {
+      return unitToSymbol(this.unit);
+    }
 }
 

@@ -6,14 +6,17 @@
       <app-detailed-weather [weather]="cityWeather.weather"></app-detailed-weather>
   
       <div class="card-actions">
+
         <a class="card-link" (click) = "onToggleBookmark()" >
           {{isFavorit ? 'Remover dos Favoritos': 'Adicionar aos Favoritos'}}
         </a>
+
         <a class="card-link"
-        routerLink="/details"
-        [queryParams]="{ lat: cityWeather.city.coord.lat, lon: cityWeather.city.coord.lon }">
-       Ver detalhes
-     </a>
+            routerLink="/details"
+            [queryParams]="{ lat: cityWeather.city.coord.lat, lon: cityWeather.city.coord.lon }">
+            Ver detalhes
+        </a>
+
       </div>
   
     </div>
